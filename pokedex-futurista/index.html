@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" type="image/svg+xml">
+    <meta name="google-site-verification" content="hOtPVYkJGmsVdozdyfnj9zgsWAasDTgI5y8g6EYf8M4" />
+    <title>Pokémon DBP UCSP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <canvas id="particles"></canvas>
+    <button id="audio-toggle" aria-label="Toggle audio" onclick="toggleAudio()">🔊</button>
+    <header>
+        <h1 class="typing">Pokédex Futurista</h1>
+        <p>¡Descubre Pokémon en un carrusel 3D dinámico!</p>
+    </header>
+    
+    <div class="section-title">
+        <h2>Pokédex Circular</h2>
+    </div>
+    
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <div class="card" data-index="0" role="button" tabindex="0" aria-label="Pikachu card">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="Pikachu" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Pikachu</h2>
+                <p>#025</p>
+                <div>
+                    <span class="type electric">Eléctrico</span>
+                </div>
+                <p>Cuando se enfada, este Pokémon descarga la energía que almacena en las bolsas de las mejillas.</p>
+            </div>
+            
+            <div class="card" data-index="1" role="button" tabindex="0" aria-label="Charizard card">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="Charizard" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Charizard</h2>
+                <p>#006</p>
+                <div>
+                    <span class="type fire">Fuego</span>
+                    <span class="type flying">Volador</span>
+                </div>
+                <p>Escupe un fuego tan caliente que funde las rocas. Causa incendios forestales sin querer.</p>
+            </div>
+            
+            <div class="card" data-index="2" role="button" tabindex="0" aria-label="Blastoise card">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png" alt="Blastoise" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Blastoise</h2>
+                <p>#009</p>
+                <div>
+                    <span class="type water">Agua</span>
+                </div>
+                <p>Para acabar con su enemigo, lo aplasta con el peso de su cuerpo. Puede replegarse en su caparazón.</p>
+            </div>
+            
+            <div class="card legendary" data-index="3" role="button" tabindex="0" aria-label="Mewtwo card">
+                <div class="legendary-badge">Legendario</div>
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png" alt="Mewtwo" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Mewtwo</h2>
+                <p>#150</p>
+                <div>
+                    <span class="type psychic">Psíquico</span>
+                </div>
+                <p>Su ADN es casi el mismo que el de Mew, pero su tamaño y carácter son muy diferentes.</p>
+            </div>
+            
+            <div class="card legendary" data-index="4" role="button" tabindex="0" aria-label="Kyogre card">
+                <div class="legendary-badge">Legendario</div>
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/382.png" alt="Kyogre" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Kyogre</h2>
+                <p>#382</p>
+                <div>
+                    <span class="type water">Agua</span>
+                </div>
+                <p>Kyogre es capaz de provocar lluvias torrenciales que inundan vastas áreas de terreno.</p>
+            </div>
+            
+            <div class="card legendary" data-index="5" role="button" tabindex="0" aria-label="Groudon card">
+                <div class="legendary-badge">Legendario</div>
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/383.png" alt="Groudon" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Groudon</h2>
+                <p>#383</p>
+                <div>
+                    <span class="type ground">Tierra</span>
+                </div>
+                <p>Groudon ha sido descrito como el Pokémon que expandió los continentes.</p>
+            </div>
+            
+            <div class="card legendary" data-index="6" role="button" tabindex="0" aria-label="Rayquaza card">
+                <div class="legendary-badge">Legendario</div>
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/384.png" alt="Rayquaza" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Rayquaza</h2>
+                <p>#384</p>
+                <div>
+                    <span class="type dragon">Dragón</span>
+                    <span class="type flying">Volador</span>
+                </div>
+                <p>Rayquaza ha vivido en la capa de ozono durante millones de años.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section-title">
+        <h2>Muestra de Pokémon</h2>
+    </div>
+    
+    <div class="container showcase">
+        <div class="card" onclick="flipCard(this, 'venusaur')" onkeydown="if(event.key === 'Enter') flipCard(this, 'venusaur')" role="button" tabindex="0" aria-label="Venusaur card">
+            <div class="card-front">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png" alt="Venusaur" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Venusaur</h2>
+                <p>#003</p>
+                <div>
+                    <span class="type grass">Planta</span>
+                    <span class="type poison">Veneno</span>
+                </div>
+                <p>La planta florece cuando absorbe energía solar, lo cual le obliga a buscar siempre la luz del sol.</p>
+            </div>
+            <div class="card-back">
+                <h2>Venusaur Stats</h2>
+                <div class="stats">
+                    <p>HP: 80</p>
+                    <p>Ataque: 82</p>
+                    <p>Defensa: 83</p>
+                    <p>Velocidad: 80</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="flipCard(this, 'charizard')" onkeydown="if(event.key === 'Enter') flipCard(this, 'charizard')" role="button" tabindex="0" aria-label="Charizard card">
+            <div class="card-front">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="Charizard" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Charizard</h2>
+                <p>#006</p>
+                <div>
+                    <span class="type fire">Fuego</span>
+                    <span class="type flying">Volador</span>
+                </div>
+                <p>Escupe un fuego tan caliente que funde las rocas. Causa incendios forestales sin querer.</p>
+            </div>
+            <div class="card-back">
+                <h2>Charizard Stats</h2>
+                <div class="stats">
+                    <p>HP: 78</p>
+                    <p>Ataque: 84</p>
+                    <p>Defensa: 78</p>
+                    <p>Velocidad: 100</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="flipCard(this, 'blastoise')" onkeydown="if(event.key === 'Enter') flipCard(this, 'blastoise')" role="button" tabindex="0" aria-label="Blastoise card">
+            <div class="card-front">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png" alt="Blastoise" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Blastoise</h2>
+                <p>#009</p>
+                <div>
+                    <span class="type water">Agua</span>
+                </div>
+                <p>Para acabar con su enemigo, lo aplasta con el peso de su cuerpo. Puede replegarse en su caparazón.</p>
+            </div>
+            <div class="card-back">
+                <h2>Blastoise Stats</h2>
+                <div class="stats">
+                    <p>HP: 79</p>
+                    <p>Ataque: 83</p>
+                    <p>Defensa: 100</p>
+                    <p>Velocidad: 78</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="flipCard(this, 'pidgeot')" onkeydown="if(event.key === 'Enter') flipCard(this, 'pidgeot')" role="button" tabindex="0" aria-label="Pidgeot card">
+            <div class="card-front">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/018.png" alt="Pidgeot" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Pidgeot</h2>
+                <p>#018</p>
+                <div>
+                    <span class="type normal">Normal</span>
+                    <span class="type flying">Volador</span>
+                </div>
+                <p>Vuela a velocidades supersónicas, creando ráfagas que derriban árboles.</p>
+            </div>
+            <div class="card-back">
+                <h2>Pidgeot Stats</h2>
+                <div class="stats">
+                    <p>HP: 83</p>
+                    <p>Ataque: 80</p>
+                    <p>Defensa: 75</p>
+                    <p>Velocidad: 101</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="flipCard(this, 'alakazam')" onkeydown="if(event.key === 'Enter') flipCard(this, 'alakazam')" role="button" tabindex="0" aria-label="Alakazam card">
+            <div class="card-front">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/065.png" alt="Alakazam" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Alakazam</h2>
+                <p>#065</p>
+                <div>
+                    <span class="type psychic">Psíquico</span>
+                </div>
+                <p>Su cerebro puede superar a una supercomputadora, pero su cuerpo es débil.</p>
+            </div>
+            <div class="card-back">
+                <h2>Alakazam Stats</h2>
+                <div class="stats">
+                    <p>HP: 55</p>
+                    <p>Ataque: 50</p>
+                    <p>Defensa: 45</p>
+                    <p>Velocidad: 120</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="flipCard(this, 'machamp')" onkeydown="if(event.key === 'Enter') flipCard(this, 'machamp')" role="button" tabindex="0" aria-label="Machamp card">
+            <div class="card-front">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/068.png" alt="Machamp" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Machamp</h2>
+                <p>#068</p>
+                <div>
+                    <span class="type fighting">Lucha</span>
+                </div>
+                <p>Sus cuatro brazos pueden lanzar mil puñetazos en dos segundos.</p>
+            </div>
+            <div class="card-back">
+                <h2>Machamp Stats</h2>
+                <div class="stats">
+                    <p>HP: 90</p>
+                    <p>Ataque: 130</p>
+                    <p>Defensa: 80</p>
+                    <p>Velocidad: 55</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="flipCard(this, 'golem')" onkeydown="if(event.key === 'Enter') flipCard(this, 'golem')" role="button" tabindex="0" aria-label="Golem card">
+            <div class="card-front">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/076.png" alt="Golem" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Golem</h2>
+                <p>#076</p>
+                <div>
+                    <span class="type rock">Roca</span>
+                    <span class="type ground">Tierra</span>
+                </div>
+                <p>Se enrolla en una bola y rueda por pendientes para moverse rápidamente.</p>
+            </div>
+            <div class="card-back">
+                <h2>Golem Stats</h2>
+                <div class="stats">
+                    <p>HP: 80</p>
+                    <p>Ataque: 120</p>
+                    <p>Defensa: 130</p>
+                    <p>Velocidad: 45</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="flipCard(this, 'gengar')" onkeydown="if(event.key === 'Enter') flipCard(this, 'gengar')" role="button" tabindex="0" aria-label="Gengar card">
+            <div class="card-front">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/094.png" alt="Gengar" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Gengar</h2>
+                <p>#094</p>
+                <div>
+                    <span class="type ghost">Fantasma</span>
+                    <span class="type poison">Veneno</span>
+                </div>
+                <p>Para robar el calor de su víctima, se esconde en su sombra y espera en silencio.</p>
+            </div>
+            <div class="card-back">
+                <h2>Gengar Stats</h2>
+                <div class="stats">
+                    <p>HP: 60</p>
+                    <p>Ataque: 65</p>
+                    <p>Defensa: 60</p>
+                    <p>Velocidad: 110</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="flipCard(this, 'dragonite')" onkeydown="if(event.key === 'Enter') flipCard(this, 'dragonite')" role="button" tabindex="0" aria-label="Dragonite card">
+            <div class="card-front">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/149.png" alt="Dragonite" loading="lazy" onerror="this.src='assets/placeholder.png'">
+                <h2>Dragonite</h2>
+                <p>#149</p>
+                <div>
+                    <span class="type dragon">Dragón</span>
+                    <span class="type flying">Volador</span>
+                </div>
+                <p>Puede dar la vuelta al mundo en 16 horas volando a gran velocidad.</p>
+            </div>
+            <div class="card-back">
+                <h2>Dragonite Stats</h2>
+                <div class="stats">
+                    <p>HP: 91</p>
+                    <p>Ataque: 134</p>
+                    <p>Defensa: 95</p>
+                    <p>Velocidad: 80</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card legendary" onclick="flipCard(this, 'mew')" onkeydown="if(event.key === 'Enter') flipCard(this, 'mew')" role="button" tabindex="0" aria-label="Mew card">
+            <div class="legendary-badge">Legendario</div>
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/151.png" alt="Mew" loading="lazy" onerror="this.src='assets/placeholder.png'">
+            <h2>Mew</h2>
+            <p>#151</p>
+            <div>
+                <span class="type psychic">Psíquico</span>
+            </div>
+            <p>Se dice que Mew posee el ADN de todos los Pokémon, siendo capaz de usar cualquier movimiento.</p>
+            </div>
+            <div class="card-back">
+                <h2>Mew Stats</h2>
+                <div class="stats">
+                    <p>HP: 100</p>
+                    <p>Ataque: 100</p>
+                    <p>Defensa: 100</p>
+                    <p>Velocidad: 100</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 Pokédex Futurista | Todos los derechos reservados</p>
+        <p>Esta es una página de demostración, no afiliada a Pokémon Company</p>
+    </footer>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
