@@ -16,4 +16,4 @@ Una Pokédex interactiva con un carrusel 3D y una cuadrícula de 10 Pokémon en 
 
 ## Recursos
 - Imágenes: [assets.pokemon.com](https://assets.pokemon.com)
-- Sonidos: [pokemoncries.com](https://pokemoncries.com)
+- Sonidos: [pokemoncries.com](https://pokemoncries.com)![image](https://github.com/user-attachments/assets/4c4a9d3d-37f8-4551-98b4-2b3ea8305c0a)
