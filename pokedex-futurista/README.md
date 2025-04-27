@@ -9,11 +9,6 @@ Una Pokédex interactiva con un carrusel 3D y una cuadrícula de 10 Pokémon en 
 - Diseño responsivo: 2x5 en pantallas anchas (>1200px), 3x4 en tabletas (768px–1200px), 2x5 en móviles (480px–768px), 1 columna en pantallas pequeñas (<480px).
 - Fondo de partículas animadas y efectos futuristas.
 
-## Instalación
-1. Clona el repositorio: `git clone https://github.com/<tu-usuario>/pokedex-futurista.git`
-2. Asegúrate de incluir `assets/placeholder.png` para imágenes fallidas (opcional).
-3. Abre `index.html` en un navegador.
-
 ## Recursos
 - Imágenes: [assets.pokemon.com](https://assets.pokemon.com)
 - Sonidos: [pokemoncries.com](https://pokemoncries.com)![image](https://github.com/user-attachments/assets/4c4a9d3d-37f8-4551-98b4-2b3ea8305c0a)
